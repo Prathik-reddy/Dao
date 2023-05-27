@@ -5,7 +5,7 @@ const Proposal = () => {
   return (
     <>
       <ProposalDetails />
-      {/* <Voters /> */}
+      <Voters />
     </>
   )
 }

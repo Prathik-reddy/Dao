@@ -23,6 +23,7 @@ const ProposalDetails = () => {
     retrieveProposal()
   }, [id])
 
+
   const retrieveProposal = async () => {
     await getProposal(id).then((res) => {
       setProposal(res)
@@ -31,6 +32,7 @@ const ProposalDetails = () => {
           name: 'Voters',
           Acceptees: res?.upvotes,
           Rejectees: res?.downvotes,
+          // optional chaining is used here.Gives undefined instead of error if the obj accessed or func is undefined or null
         },
       ])
     })
@@ -53,7 +55,7 @@ const ProposalDetails = () => {
         This proposal is to payout <strong>{proposal?.amount} Eth</strong> and
         currently have{' '}
         <strong>{proposal?.upvotes + proposal?.downvotes} votes</strong> and
-        will expire in <strong>{daysRemaining(proposal?.duration)}</strong>
+        will expire on <strong>{daysRemaining(proposal?.duration)}</strong>
       </p>
       <hr className="my-6 border-gray-300" />
       <p>{proposal?.description}</p>
